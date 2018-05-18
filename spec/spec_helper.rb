@@ -17,3 +17,4 @@ RSpec.configure do |c|
 end
 
 Rig.home = "#{Dir.pwd}/spec/rigs"
+
