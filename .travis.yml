@@ -1,29 +1,17 @@
-language: ruby
+
+
 
 env:
   global:
-  - CC_TEST_REPORTER_ID=0922491e117c30741ac6ca2d98326ba357829e200b649e2f337b7bf58e60c658
-
+    - CC_TEST_REPORTER_ID=0922491e117c30741ac6ca2d98326ba357829e200b649e2f337b7bf58e60c658
+language: ruby
 rvm:
-##  - "2.4.0"
-  - "2.5.0"
-
-branches:
-  only: [master]
-
-notifications:
-  email: false
-
-before_install:
-- gem install bundler
-
+  - 2.2.0
 before_script:
-- curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-- chmod +x ./cc-test-reporter
-- ./cc-test-reporter before-build
-
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
 script:
-- bundle exec rspec
-
-after_script: 
-- ./cc-test-reporter after-build --debug --exit-code $TRAVIS_TEST_RESULT
+  - bundle exec rspec
+after_script:
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
