@@ -175,4 +175,3 @@ describe Commands::Build::BuildHandler do
       end
     end
   end
-end
