@@ -163,18 +163,7 @@ describe Commands::Build::BuildHandler do
         end
       end
 
-      context "when the user answers overwrite all" do
-        it "copies the file content" do
-          Dir.chdir workdir do
-            stdin_send(down_arrow, 'a') do
-              expect{ subject.execute }.to output(/File.*\.\/some-file.txt.*already exists.\n\s*Overwrite\?.*overwrite all/m).to_stdout
-            end
-            expect(File.read 'some-file.txt').to eq 'static content'
-          end
-        end
-      end
-
-    end
+      
 
     context "when the source dir does not exist" do
       let(:args) {{ 'RIG' => 'no-such-rig', 'PARAMS' => [] }}
